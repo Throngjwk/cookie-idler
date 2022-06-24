@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Font1;
+    src: url(font-layer-1.ttf);
+}
+
+@font-face {
+    font-family: Roboto Mono;
+    src: url(RobotoMono-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Clear Sans;
+    src: url(ClearSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Clear Sans Bold;
+    src: url(ClearSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Medium.ttf);
+}
+
+body {
+    font-family: Font1;
+}
+
+achievement.locked {
+    background-color: green;
+}
+
+achievement.unlocked {
+    background-color: red;
+}
+
+h1.sugarlump, h2.sugarlump, h3.sugarlump, p.sugarlump, .sugarlump {
+    background-color: cadetblue;
+    font-family: Comic Sans MS;
+    color: blueviolet;
+    border-color: blue;
+    width: 3.6%;
+}
