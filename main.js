@@ -28,6 +28,8 @@ Portal = new PortalVars();
 Portal.getPortal = Portal.level.mul(7.1e90)
 TimeMachine = new TimeMachineVars();
 TimeMachine.getTimeMachine = TimeMachine.level.mul(5.56e109)
+AntimatterCondenser = new AntimatterCondenserVars();
+AntimatterCondenser.getAntimatterCondenser = AntimatterCondenser.level.mul(9.29e123)
 var currently = new OmegaNum("1");
 var currently_formula = new OmegaNum("1")
 var number_pub = 0;
@@ -110,6 +112,11 @@ function PortalVars() {
 function TimeMachineVars() {
     this.level = new OmegaNum("0")
     this.price = new OmegaNum("1e164")
+}
+
+function AntimatterCondenserVars() {
+    this.level = new OmegaNum("0")
+    this.price = new OmegaNum("1e192")
 }
 
 document.getElementById('cookies').innerHTML = "You Have " + cookies + " Cookies";
@@ -257,7 +264,29 @@ document.getElementById("cost12").onclick = () => {
         Portal.price = Portal.price.mul(1.5)
         document.getElementById('cps').innerHTML = cps + " cookies per sec";
         document.getElementById('cookies').innerHTML = "You Have " + cookies + " Cookies";
-        document.getElementById('cost10').innerHTML = "Cost:" + Portal.price;
+        document.getElementById('cost11').innerHTML = "Cost:" + Portal.price;
+    }
+}
+
+document.getElementById("cost13").onclick = () => {
+    if (cookies.gte(TimeMachine.price) == true) {
+        cookies = cookies.sub(TimeMachine.price);
+        cps = cps.add(5.56e109);
+        Portal.price = Portal.price.mul(1.5)
+        document.getElementById('cps').innerHTML = cps + " cookies per sec";
+        document.getElementById('cookies').innerHTML = "You Have " + cookies + " Cookies";
+        document.getElementById('cost12').innerHTML = "Cost:" + TimeMachine.price;
+    }
+}
+
+document.getElementById("cost14").onclick = () => {
+    if (cookies.gte(AntimatterCondenser.price) == true) {
+        cookies = cookies.sub(AntimatterCondenser.price);
+        cps = cps.add(9.29e123);
+        AntimatterCondenser.price = AntimatterCondenser.price.mul(1.5)
+        document.getElementById('cps').innerHTML = cps + " cookies per sec";
+        document.getElementById('cookies').innerHTML = "You Have " + cookies + " Cookies";
+        document.getElementById('cost12').innerHTML = "Cost:" + AntimatterCondenser.price;
     }
 }
 
@@ -265,6 +294,8 @@ document.getElementById("publicBtn").onclick = () => {
     if (cookies.gte(1e12) == true) {
         cookies = new OmegaNum("0");
         cps = new OmegaNum("0");
+        TimeMachine.level = new OmegaNum(0)
+        TimeMachine.price = new OmegaNum("1e164")
         Portal.level = new OmegaNum(0)
         Portal.price = new OmegaNum("1e133")
         AlchemyLab.level = new OmegaNum(0)
@@ -384,6 +415,16 @@ setInterval(() => {
     } else {
         document.getElementById("achievement15").innerHTML = "<achievement class=\"unlocked\">O lord who is the creator, grace my existence with cookies</achievement>"
     }
+    if (cookies.gte("1e400") == true) {
+        document.getElementById("achievement16").innerHTML = "<achievement class=\"locked\">I think it's safe to say you've got it made</achievement>"
+    } else {
+        document.getElementById("achievement16").innerHTML = "<achievement class=\"unlocked\">I think it's safe to say you've got it made</achievement>"
+    }
+    if (cookies.gte("1e450") == true) {
+        document.getElementById("achievement17").innerHTML = "<achievement class=\"locked\">Horn O' Plenty</achievement>"
+    } else {
+        document.getElementById("achievement17").innerHTML = "<achievement class=\"unlocked\">Horn O' Plenty</achievement>"
+    }
 }, 90);
 
 // GET PER SECOND:
@@ -405,4 +446,5 @@ setInterval(() => {
 }, 90);
 
 // You Dont have changelog:
+// v1.0.1: More bug upgrades
 // v1.0.0: Release.

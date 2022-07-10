@@ -42,3 +42,13 @@ h1.sugarlump, h2.sugarlump, h3.sugarlump, p.sugarlump, .sugarlump {
     border-color: blue;
     width: 3.6%;
 }
+
+button.buliding {
+    background-color: brown;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button.buliding-power {
+    bottom: inherit;
+    background-color: turquoise;
+}
